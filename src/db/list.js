@@ -1,7 +1,7 @@
 import JSONStream from "JSONStream";
 import path from "path";
 import fs from "fs";
-export class jsonDB {
+export class BaseClass {
   listOfAllCompanyDetailsInUSA = async db => {
     let jsonFilePath = await path.join(__dirname, "../json/companies.json");
     let inputStream = await fs.createReadStream(jsonFilePath);
@@ -27,4 +27,4 @@ export class jsonDB {
     });
   };
 }
-export default new jsonDB(); // singleton instance of the database
+export default new BaseClass(); // singleton instance of the database
