@@ -6,10 +6,10 @@
  * the rest of the application can work.
  */
 
-var JSONStream = require('JSONStream')
-var path = require( "path" );
-var fs = require( "fs" );
-var es = require('event-stream');
+import JSONStream from "JSONStream"
+import path from "path" 
+import fs from "fs" 
+
 import { hashPassword, comparePassword } from "../lib/crypto";
 
 const PUBLIC_FIELDS = ["id", "name"];
@@ -40,7 +40,7 @@ export class jsonDB {
       var json = JSON.parse(data);
       console.log(json.features);
       db.collection("indian_state_list").insertMany(json.features, function(err, doc) {
-      // console.log(data);
+      console.log(data);
       if(err) throw err;
       });
   
