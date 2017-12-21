@@ -7,8 +7,8 @@ import cookieParser from "cookie-parser";
 
 import { ApplicationError } from "./lib/errors";
 import {
-  create as createUserRoute,
-  list as listUsersRoute
+  usaCompanyList as listCompanyRoute,
+  indianStateList as listIndianStateRoute
 } from "./routes/users";
 import { authenticate as authenticateRoute } from "./routes/sessions";
 
@@ -55,7 +55,8 @@ export default function createRouter() {
    * users endpoints
    */
   // the sessions.verify middleware ensures the user is logged in
-  router.get("/json", listUsersRoute);
+  router.get("/company", listCompanyRoute);
+  router.get("/states", listIndianStateRoute);
 
   // ******************
   // * ERROR HANDLING *

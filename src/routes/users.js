@@ -8,8 +8,13 @@ import jsonDB from "../db/users";
 /**
  * Route to list out all users. Returns a list of all users in the payload.
  */
-export const list = route(async (req, res) => {
-  
-  const users = await jsonDB.list();
+export const usaCompanyList = route(async (req, res) => {
+  let db = req.db;
+  const users = await jsonDB.listOfAllCompanyDetailsInUSA(db);
+  res.send({ data: users });
+});
+export const indianStateList = route(async (req, res) => {
+  let db = req.db;
+  const users = await jsonDB.listOfAllIndianState(db);
   res.send({ data: users });
 });

@@ -7,10 +7,12 @@ import https from "https";
 import http from "http";
 import fs from "fs";
 import { getEnv } from "./lib/env";
+import expressMongoDb from "express-mongo-db";
 
 import createRouter from "./router";
 
 const app = express();
+app.use(expressMongoDb("mongodb://localhost:27017/doc_jsondb"));
 const isProduction = getEnv("NODE_ENV") === "production";
 
 if (isProduction) {
