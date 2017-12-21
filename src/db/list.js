@@ -17,10 +17,7 @@ export class BaseDB {
     let jsonFilePath = await path.join(__dirname, "../json/india_states.json");
     let json = fs.readFileSync(jsonFilePath, "utf8");
     let data = await JSON.parse(json);
-    let list = await db
-      .collection("indian_state_list")
-      .insertMany(data.features);
-    return await list;
+    return await db.collection("indian_state_list").insertMany(data.features);
   };
 }
 export default new BaseDB(); // singleton instance of the database
