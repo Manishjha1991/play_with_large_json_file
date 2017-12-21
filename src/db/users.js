@@ -24,8 +24,8 @@ export class jsonDB {
 
  listOfAllCompanyDetailsInUSA = async (db) => {
     let jsonFilePath = await path.join(__dirname,"../json/companies.json");
-    var inputStream = await fs.createReadStream(jsonFilePath);
-    var transformStream = JSONStream.parse( "*" );
+    let inputStream = await fs.createReadStream(jsonFilePath);
+    let transformStream = JSONStream.parse( "*" );
     inputStream.pipe( transformStream ).on("data",function(data){
       db.collection("company_list_details").insertMany(data);
        console.log("Done !")
@@ -37,7 +37,7 @@ export class jsonDB {
     fs.readFile(jsonFilePath, 'utf8', function (err, data) {
       if (err) throw err;
       
-      var json = JSON.parse(data);
+      let json = JSON.parse(data);
       console.log(json.features);
       db.collection("indian_state_list").insertMany(json.features, function(err, doc) {
       console.log(data);
