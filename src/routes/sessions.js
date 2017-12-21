@@ -1,6 +1,6 @@
 import { ApplicationError } from "../lib/errors";
 import { decodeToken, generateToken } from "../lib/token";
-import usersDB from "../db/users";
+import usersDB from "../db/list";
 import { route } from "./";
 
 export const authenticate = route(

@@ -9,7 +9,7 @@ import { ApplicationError } from "./lib/errors";
 import {
   usaCompanyList as listCompanyRoute,
   indianStateList as listIndianStateRoute
-} from "./routes/users";
+} from "./routes/list";
 import { authenticate as authenticateRoute } from "./routes/sessions";
 
 export default function createRouter() {
