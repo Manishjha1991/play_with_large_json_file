@@ -15,18 +15,12 @@ export class BaseDB {
   //trying to read  small json file like 10 mb//
   listOfAllIndianState = async db => {
     let jsonFilePath = await path.join(__dirname, "../json/india_states.json");
-    fs.readFile(jsonFilePath, "utf8", function(err, data) {
-      if (err) throw err;
-
-      let json = JSON.parse(data);
-      console.log(json.features);
-      db
-        .collection("indian_state_list")
-        .insertMany(json.features, function(err, doc) {
-          console.log(data);
-          if (err) throw err;
-        });
-    });
+    let json = fs.readFileSync(jsonFilePath, "utf8");
+    let data = await JSON.parse(json);
+    let list = await db
+      .collection("indian_state_list")
+      .insertMany(data.features);
+    return await list;
   };
 }
 export default new BaseDB(); // singleton instance of the database

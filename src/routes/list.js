@@ -8,5 +8,6 @@ export const usaCompanyList = route(async (req, res) => {
 export const indianStateList = route(async (req, res) => {
   let db = req.db;
   const list = await BaseDB.listOfAllIndianState(db);
+  console.log(list);
   res.send({ data: list });
 });
