@@ -2,6 +2,7 @@ import JSONStream from "JSONStream";
 import path from "path";
 import fs from "fs";
 export class BaseDB {
+  // trying to read big json file like 80mb//
   listOfAllCompanyDetailsInUSA = async db => {
     let jsonFilePath = await path.join(__dirname, "../json/companies.json");
     let inputStream = await fs.createReadStream(jsonFilePath);
@@ -11,6 +12,7 @@ export class BaseDB {
       console.log("Done !");
     });
   };
+  //trying to read  small json file like 10 mb//
   listOfAllIndianState = async db => {
     let jsonFilePath = await path.join(__dirname, "../json/india_states.json");
     fs.readFile(jsonFilePath, "utf8", function(err, data) {
